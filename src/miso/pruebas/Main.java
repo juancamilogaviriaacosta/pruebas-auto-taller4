@@ -31,18 +31,22 @@ public class Main {
             e.printStackTrace();
         }
     }
-    
+
     public void consultaTopTodas() {
         try {
             Set<String> hrefs = new HashSet<>();
             Document doc = Jsoup.connect("https://play.google.com/store/apps/category/FINANCE/collection/topselling_paid").timeout(0).get();
             Elements anchors = doc.getElementsByClass("card-click-target");
             for (Element e : anchors) {
-                String href = "https://play.google.com/" +  e.attr("href");
+                String href = "https://play.google.com/" + e.attr("href");
                 hrefs.add(href);
             }
-            System.out.println(Arrays.deepToString(hrefs.toArray()));
-            
+
+            for (String url : hrefs) {
+                Document paginaApp = Jsoup.connect(url).timeout(0).get();
+                String descripcion = paginaApp.select("[itemprop='description']").text();
+                System.out.println(descripcion + "\n");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
