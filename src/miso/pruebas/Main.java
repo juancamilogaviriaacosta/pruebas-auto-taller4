@@ -61,8 +61,6 @@ public class Main {
                 //Ratings con 4 estrellas
                 Elements claseCuatroEstrellas = paginaApp.getElementsByClass("rating-bar-container four");
                 System.out.println("Ratings con 4 estrellas: " + claseCuatroEstrellas.get(0).text());
-
-                break;
             }
         } catch (IOException e) {
             e.printStackTrace();
