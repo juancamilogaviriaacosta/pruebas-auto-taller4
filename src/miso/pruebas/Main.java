@@ -36,15 +36,15 @@ public class Main {
 
                 //Descripcion
                 Elements claseTitulo = paginaApp.getElementsByClass("id-app-title");
-                System.out.println("\nTitulo: " + claseTitulo.get(0).text());
+                System.out.println("\nTitulo: " + (!claseTitulo.isEmpty() ? claseTitulo.get(0).text() : ""));
 
                 //Numero de raitings
                 Elements claseRaitings = paginaApp.getElementsByClass("rating-count");
-                System.out.println("Numero de raitings: " + claseRaitings.get(0).text());
+                System.out.println("Numero de raitings: " + (!claseRaitings.isEmpty() ? claseRaitings.get(0).text() : ""));
 
                 //Score
                 Elements claseScore = paginaApp.getElementsByClass("score");
-                System.out.println("Score: " + claseScore.get(0).text());
+                System.out.println("Score: " + (!claseScore.isEmpty() ? claseScore.get(0).text() : ""));
 
                 //Descripcion
                 String descripcion = paginaApp.select("[itemprop='description']").text();
@@ -52,15 +52,15 @@ public class Main {
 
                 //Cambios recientes
                 Elements claseCambiosRecientes = paginaApp.getElementsByClass("recent-change");
-                System.out.println("Cambios recientes: " + claseCambiosRecientes.get(0).text());
+                System.out.println("Cambios recientes: " + (!claseCambiosRecientes.isEmpty() ? claseCambiosRecientes.get(0).text() : ""));
 
                 //Ratings con 5 estrellas
                 Elements claseCincoEstrellas = paginaApp.getElementsByClass("rating-bar-container five");
-                System.out.println("Ratings con 5 estrellas: " + claseCincoEstrellas.get(0).text());
+                System.out.println("Ratings con 5 estrellas: " + (!claseCincoEstrellas.isEmpty() ? claseCincoEstrellas.get(0).text() : ""));
 
                 //Ratings con 4 estrellas
                 Elements claseCuatroEstrellas = paginaApp.getElementsByClass("rating-bar-container four");
-                System.out.println("Ratings con 4 estrellas: " + claseCuatroEstrellas.get(0).text());
+                System.out.println("Ratings con 4 estrellas: " + (!claseCuatroEstrellas.isEmpty() ? claseCuatroEstrellas.get(0).text() : ""));
             }
         } catch (IOException e) {
             e.printStackTrace();
